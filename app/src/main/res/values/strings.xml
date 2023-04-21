@@ -2,4 +2,8 @@
     <string name="app_name">Digital Library</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_books_button_text">New Book</string>
+    <string name="edit_book_button_text">Edit Book</string>
+    <string name="back_button_text">Back to Shelf</string>
+    <string name="set_book_info_text">Finish</string>
 </resources>

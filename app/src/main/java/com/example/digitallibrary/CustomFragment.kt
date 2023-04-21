@@ -20,6 +20,10 @@ class CustomFragment : Fragment() {
         _binding = FragmentCustomBinding.inflate(inflater, container, false)
         val rootView = binding.root
 
+//        binding.backButtonCustom.setOnClickListener{
+//            rootView.findNavController()
+//                .navigate(R.id.action_cus_to_customFragment)
+//        }
 
         return rootView
     }

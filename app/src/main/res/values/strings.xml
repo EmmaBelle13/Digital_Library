@@ -6,4 +6,5 @@
     <string name="edit_book_button_text">Edit Book</string>
     <string name="back_button_text">Back to Shelf</string>
     <string name="set_book_info_text">Finish</string>
+    <string name = "title">Title</string>
 </resources>

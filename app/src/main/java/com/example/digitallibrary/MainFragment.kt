@@ -33,7 +33,10 @@ class MainFragment : Fragment() {
             rootView.findNavController()
                 .navigate(R.id.action_mainFragment_to_customFragment)
         }
+        val books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
+        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"))
 
+        val myAdapter: BookAdapter(books)
 
         return rootView
     }

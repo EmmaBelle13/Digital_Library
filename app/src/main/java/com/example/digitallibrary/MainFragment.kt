@@ -34,9 +34,12 @@ class MainFragment : Fragment() {
                 .navigate(R.id.action_mainFragment_to_customFragment)
         }
         val books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"))
+        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"))
 
-        val myAdapter: BookAdapter(books)
+        val myAdapter = BookAdapter(books)
+        binding.recyclerView.adapter = myAdapter
 
         return rootView
     }

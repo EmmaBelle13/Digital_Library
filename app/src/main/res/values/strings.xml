@@ -6,6 +6,13 @@
     <string name="edit_book_button_text">Edit Book</string>
     <string name="back_button_text">Back to Shelf</string>
     <string name="set_book_info_text">Create Book</string>
-    <string name = "title">Title</string>
+    <string name = "title">Title:</string>
+    <string name="author_title">Author:</string>
+    <string name="summary_title">Summary or Opinion:</string>
+    <string name="color_title">Color:</string>
+    <string name="genre_title">Genre:</string>
+    <string name="size_title">Height:</string>
+    <string name="score_title">Score:</string>
+    <string name="number_of_pages_title"># of Pages:</string>
 
 </resources>

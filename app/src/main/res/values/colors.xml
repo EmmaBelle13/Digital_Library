@@ -12,4 +12,7 @@
       <color name="light_green">#ABBB99</color>
       <color name="dark_green">#29612C</color>
       <color name="gold">#D68610</color>
+         <color name="blue">#123355</color>
+    <color name="pink">#E1799C</color>
+     <color name="purple_gray">#5F597C</color>
 </resources>

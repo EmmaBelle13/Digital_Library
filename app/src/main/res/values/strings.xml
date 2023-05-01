@@ -8,11 +8,14 @@
     <string name="set_book_info_text">Create Book</string>
     <string name = "title">Title:</string>
     <string name="author_title">Author:</string>
-    <string name="summary_title">Summary or Opinion:</string>
+    <string name="summary_title">Summary:</string>
     <string name="color_title">Color:</string>
     <string name="genre_title">Genre:</string>
     <string name="size_title">Height:</string>
     <string name="score_title">Score:</string>
     <string name="number_of_pages_title"># of Pages:</string>
+    <string name="small_option">Short</string>
+    <string name="large_option">Tall</string>
+
 
 </resources>

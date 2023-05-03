@@ -16,6 +16,14 @@
     <string name="number_of_pages_title"># of Pages:</string>
     <string name="small_option">Short</string>
     <string name="large_option">Tall</string>
+    <string-array name="genre_options_array">
+        <item>Fantasy</item>
+        <item>Horror</item>
+        <item>Sci-fi</item>
+           <item>Historical Fiction</item>
+           <item>Comedy</item>
+           <item>Romance</item>
+    </string-array>
 
 
 </resources>

@@ -5,12 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import androidx.fragment.app.activityViewModels
 import com.example.digitallibrary.databinding.FragmentCustomBinding
 
 
 class CustomFragment : Fragment() {
     private var _binding: FragmentCustomBinding? = null
-       private val  binding get() =  _binding!!
+    private val binding get() = _binding!!
+    private val viewModel: BookViewModel by activityViewModels()
+    lateinit var genre: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,6 +24,8 @@ class CustomFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentCustomBinding.inflate(inflater, container, false)
         val rootView = binding.root
+        setUpSpinner()
+
 
 //        binding.backButtonCustom.setOnClickListener{
 //            rootView.findNavController()
@@ -33,4 +40,31 @@ class CustomFragment : Fragment() {
         _binding = null
     }
 
+    fun setUpSpinner() {
+        val spinner = binding.spinner
+        val genreArrayAdapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.genre_options_array,
+            android.R.layout.simple_spinner_item
+        )
+        genreArrayAdapter.setDropDownViewResource(
+            android.R.layout.simple_spinner_dropdown_item
+        )
+        spinner.adapter = genreArrayAdapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            override fun onItemSelected(
+                GuestArrayAdapter: AdapterView<*>,
+                childView: View?,
+                position: Int,
+                itemId: Long
+            ) {
+                genre = genreArrayAdapter.getItemAtPosition(position).toString()
+
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>?) {}
+        }
+
+    }
 }

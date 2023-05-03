@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.example.digitallibrary.databinding.FragmentBookInfoBinding
 
 
 class BookInfoFragment : Fragment() {
     private var _binding: FragmentBookInfoBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: BookViewModel by activityViewModels()
 
 
     override fun onCreateView(

@@ -48,7 +48,7 @@
         android:id="@+id/summary_text_customizer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/summary_title"
         android:textColor="@color/black"
@@ -134,9 +134,11 @@
         android:id="@+id/edit_summary"
         android:layout_width="279dp"
         android:layout_height="32dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:hint=""
         app:layout_constraintBottom_toBottomOf="@+id/summary_text_customizer"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/summary_text_customizer"
         app:layout_constraintTop_toTopOf="@+id/summary_text_customizer" />
 
@@ -217,6 +219,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/book_size_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -229,13 +232,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/small_option"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
+            android:layout_height="match_parent"
+            android:layout_weight="5" />
 
         <TextView
             android:id="@+id/large_option_text"
@@ -243,7 +246,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/large_option"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 

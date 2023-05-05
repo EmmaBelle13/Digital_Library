@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.digitallibrary.databinding.FragmentMainBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
@@ -20,6 +23,7 @@ class MainFragment : Fragment() {
      private val viewModel: BookViewModel by activityViewModels()
 
     lateinit var dbRef : DatabaseReference
+   // private var recycler: RecyclerView = binding.recyclerView
 
 
     override fun onCreateView(
@@ -30,6 +34,7 @@ class MainFragment : Fragment() {
         _binding =  FragmentMainBinding.inflate(inflater, container, false)
         val rootView = binding.root
         dbRef = Firebase.database.reference
+       // recycler.layoutManager = GridLayoutManager(requireContext(), 3)
 
         binding.addBooksButton.setOnClickListener{
             rootView.findNavController()

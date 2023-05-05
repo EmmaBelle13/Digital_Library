@@ -21,7 +21,11 @@
         android:id="@+id/customFragment"
         android:name="com.example.digitallibrary.CustomFragment"
         android:label="fragment_custom"
-        tools:layout="@layout/fragment_custom" />
+        tools:layout="@layout/fragment_custom" >
+        <action
+            android:id="@+id/action_customFragment_to_bookInfoFragment"
+            app:destination="@id/bookInfoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/bookInfoFragment"
         android:name="com.example.digitallibrary.BookInfoFragment"

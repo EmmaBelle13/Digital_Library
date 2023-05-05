@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.example.digitallibrary.databinding.FragmentCustomBinding
 
 
@@ -25,6 +26,9 @@ class CustomFragment : Fragment() {
         _binding = FragmentCustomBinding.inflate(inflater, container, false)
         val rootView = binding.root
         setUpSpinner()
+        binding.setBookInfo.setOnClickListener(){
+            rootView.findNavController().navigate(R.id.action_customFragment_to_bookInfoFragment)
+        }
 
 
 //        binding.backButtonCustom.setOnClickListener{
@@ -43,7 +47,7 @@ class CustomFragment : Fragment() {
     fun setUpSpinner() {
         val spinner = binding.spinner
         val genreArrayAdapter = ArrayAdapter.createFromResource(
-            this,
+            requireContext(),
             R.array.genre_options_array,
             android.R.layout.simple_spinner_item
         )
@@ -59,7 +63,7 @@ class CustomFragment : Fragment() {
                 position: Int,
                 itemId: Long
             ) {
-                genre = genreArrayAdapter.getItemAtPosition(position).toString()
+                genre = genreArrayAdapter.getItem(position).toString()
 
             }
 

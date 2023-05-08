@@ -24,6 +24,7 @@
            <item>Comedy</item>
            <item>Romance</item>
     </string-array>
+    <string name="by_text">By:</string>
 
 
 </resources>

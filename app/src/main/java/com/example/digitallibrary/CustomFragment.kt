@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.digitallibrary.databinding.FragmentCustomBinding
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 
 class CustomFragment : Fragment() {
@@ -17,6 +20,7 @@ class CustomFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: BookViewModel by activityViewModels()
     lateinit var genre: String
+    lateinit var dbRef: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +30,12 @@ class CustomFragment : Fragment() {
         _binding = FragmentCustomBinding.inflate(inflater, container, false)
         val rootView = binding.root
         setUpSpinner()
+
+        dbRef = Firebase.database.reference
+
         binding.setBookInfo.setOnClickListener(){
+            var currentBook: Book = viewModel.currentBook
+            dbRef.child("book").push().setValue(currentBook)
             rootView.findNavController().navigate(R.id.action_customFragment_to_bookInfoFragment)
         }
 

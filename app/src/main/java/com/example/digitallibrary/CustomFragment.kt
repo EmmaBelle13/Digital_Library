@@ -34,8 +34,9 @@ class CustomFragment : Fragment() {
         dbRef = Firebase.database.reference
 
         binding.setBookInfo.setOnClickListener(){
-            var currentBook: Book = viewModel.currentBook
-            dbRef.child("book").push().setValue(currentBook)
+       //     var currentBook: Book = viewModel.currentBook
+            //Should be what sends it to the firebase db but I have not actually set up information to store yet
+       //     dbRef.child("book").push().setValue(currentBook)
             rootView.findNavController().navigate(R.id.action_customFragment_to_bookInfoFragment)
         }
 

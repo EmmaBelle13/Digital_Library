@@ -27,6 +27,9 @@ class BookInfoFragment : Fragment() {
         binding.editButton.setOnClickListener(){
             rootView.findNavController().navigate(R.id.action_bookInfoFragment_to_customFragment)
         }
+        binding.backButton.setOnClickListener(){
+            rootView.findNavController().navigateUp()
+        }
 
         return rootView
     }

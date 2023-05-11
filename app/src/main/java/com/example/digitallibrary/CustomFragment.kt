@@ -40,11 +40,45 @@ class CustomFragment : Fragment() {
             rootView.findNavController().navigate(R.id.action_customFragment_to_bookInfoFragment)
         }
 
+        // For each check box the furthest option to the right should automatically fill in all options up until that point
+        binding.scoreOne.setOnClickListener(){
+            if (binding.scoreOne.isChecked){
+                viewModel.setScore(1)
+            }
+        }
+        binding.scoreTwo.setOnClickListener(){
+            if (binding.scoreTwo.isChecked){
+                viewModel.setScore(2)
+                binding.scoreOne.isChecked = true
+            }
+        }
+         binding.scoreThree.setOnClickListener(){
+            if (binding.scoreThree.isChecked){
+                viewModel.setScore(3)
+                binding.scoreOne.isChecked = true
+                binding.scoreTwo.isChecked = true
+            }
+        }
+         binding.scoreFour.setOnClickListener(){
+            if (binding.scoreFour.isChecked){
+                viewModel.setScore(4)
+                binding.scoreOne.isChecked = true
+                binding.scoreTwo.isChecked = true
+                binding.scoreThree.isChecked = true
+            }
+        }
+        binding.scoreFive.setOnClickListener(){
+            if (binding.scoreFive.isChecked){
+                viewModel.setScore(5)
+                binding.scoreOne.isChecked = true
+                binding.scoreTwo.isChecked = true
+                binding.scoreThree.isChecked = true
+                binding.scoreFour.isChecked = true
+            }
+        }
 
-//        binding.backButtonCustom.setOnClickListener{
-//            rootView.findNavController()
-//                .navigate(R.id.action_cus_to_customFragment)
-//        }
+
+
 
         return rootView
     }
@@ -74,7 +108,7 @@ class CustomFragment : Fragment() {
                 itemId: Long
             ) {
                 genre = genreArrayAdapter.getItem(position).toString()
-
+            viewModel.setGenre(genre)
             }
 
             override fun onNothingSelected(adapterView: AdapterView<*>?) {}

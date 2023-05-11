@@ -17,10 +17,35 @@ class BookViewModel: ViewModel() {
     val color: LiveData<String>
         get() = _color
 
+    private var _bookHeight = MutableLiveData(220)
+    val bookHeight: LiveData<Int>
+        get() = _bookHeight
+
+    private var _summary = MutableLiveData<String>(" ")
+    val summary: LiveData<String>
+        get() = _summary
+
+    private var _genre = MutableLiveData<String>("")
+    val genre: LiveData<String>
+        get() = _genre
+
+    private var _score = MutableLiveData(0)
+    val score: LiveData<Int>
+        get() = _score
+
     //this is not what this should be I just want to get rid of the red so I can run the code
     private var _currentBook = MutableLiveData(0)
     val currentBook: LiveData<Int>
         get() = _currentBook
+
+    fun setGenre( inputGenre: String){
+        _genre.value = inputGenre
+
+    }
+
+    fun setScore( num: Int){
+        _score.value = num
+    }
 
 
 

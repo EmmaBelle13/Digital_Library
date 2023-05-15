@@ -41,15 +41,23 @@ class CustomFragment : Fragment() {
         }
 
         // For each check box the furthest option to the right should automatically fill in all options up until that point
+        //does not uncheck buttons when you click to the left yet
         binding.scoreOne.setOnClickListener(){
             if (binding.scoreOne.isChecked){
                 viewModel.setScore(1)
+                binding.scoreTwo.isChecked = false
+                binding.scoreThree.isChecked = false
+                   binding.scoreFour.isChecked = false
+                 binding.scoreFive.isChecked = false
             }
         }
         binding.scoreTwo.setOnClickListener(){
             if (binding.scoreTwo.isChecked){
                 viewModel.setScore(2)
                 binding.scoreOne.isChecked = true
+                binding.scoreThree.isChecked = false
+                   binding.scoreFour.isChecked = false
+                 binding.scoreFive.isChecked = false
             }
         }
          binding.scoreThree.setOnClickListener(){
@@ -57,6 +65,8 @@ class CustomFragment : Fragment() {
                 viewModel.setScore(3)
                 binding.scoreOne.isChecked = true
                 binding.scoreTwo.isChecked = true
+                 binding.scoreFour.isChecked = false
+                 binding.scoreFive.isChecked = false
             }
         }
          binding.scoreFour.setOnClickListener(){
@@ -65,6 +75,7 @@ class CustomFragment : Fragment() {
                 binding.scoreOne.isChecked = true
                 binding.scoreTwo.isChecked = true
                 binding.scoreThree.isChecked = true
+                binding.scoreFive.isChecked = false
             }
         }
         binding.scoreFive.setOnClickListener(){
@@ -76,6 +87,13 @@ class CustomFragment : Fragment() {
                 binding.scoreFour.isChecked = true
             }
         }
+
+        //When a button color is chosen it either needs to glow or set the background to be that
+        binding.colorButtonBlue.setOnClickListener(){
+//            viewModel.setColor("R.color.blue")
+        }
+
+
 
 
 

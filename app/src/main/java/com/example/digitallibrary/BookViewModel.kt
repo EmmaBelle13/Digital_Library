@@ -13,7 +13,7 @@ class BookViewModel: ViewModel() {
     val author: LiveData<String>
         get() = _author
 
-    private var _color = MutableLiveData<String>("@color/red")
+    private var _color = MutableLiveData<String>("R.color.red")
     val color: LiveData<String>
         get() = _color
 
@@ -46,6 +46,10 @@ class BookViewModel: ViewModel() {
     fun setScore( num: Int){
         _score.value = num
     }
+
+//    fun setColor(color: String){
+//        _score.value = color
+//    }
 
 
 

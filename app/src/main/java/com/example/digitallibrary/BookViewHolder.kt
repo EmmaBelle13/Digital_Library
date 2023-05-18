@@ -1,7 +1,9 @@
 package com.example.digitallibrary
 
+import android.annotation.SuppressLint
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.digitallibrary.R.*
 import com.example.digitallibrary.databinding.SingleBookLayoutBinding
 
 class BookViewHolder(val binding: SingleBookLayoutBinding) :
@@ -9,7 +11,7 @@ class BookViewHolder(val binding: SingleBookLayoutBinding) :
     val rootView = binding.root
     init {
         binding.root.setOnClickListener{view->
-               rootView.findNavController().navigate(R.id.action_mainFragment_to_bookInfoFragment)
+               rootView.findNavController().navigate(id.action_mainFragment_to_bookInfoFragment)
 
 
         }
@@ -17,9 +19,13 @@ class BookViewHolder(val binding: SingleBookLayoutBinding) :
 
         private lateinit var currentBook: Book
 
+        @SuppressLint("ResourceAsColor")
         fun bindBook(book: Book){
             currentBook = book
             binding.titleText.text = currentBook.title
-           // binding.titleText.background = currentBook.color
+            var color = currentBook.color
+            binding.titleText.setBackgroundColor(R.color.blue)
         }
 }
+
+

@@ -11,9 +11,6 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_customFragment"
-            app:destination="@id/customFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_bookInfoFragment"
             app:destination="@id/bookInfoFragment" />
     </fragment>
@@ -21,11 +18,7 @@
         android:id="@+id/customFragment"
         android:name="com.example.digitallibrary.CustomFragment"
         android:label="fragment_custom"
-        tools:layout="@layout/fragment_custom" >
-        <action
-            android:id="@+id/action_customFragment_to_bookInfoFragment"
-            app:destination="@id/bookInfoFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_custom" />
     <fragment
         android:id="@+id/bookInfoFragment"
         android:name="com.example.digitallibrary.BookInfoFragment"

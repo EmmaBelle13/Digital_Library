@@ -37,7 +37,7 @@ class CustomFragment : Fragment() {
        //     var currentBook: Book = viewModel.currentBook
             //Should be what sends it to the firebase db but I have not actually set up information to store yet
        //     dbRef.child("book").push().setValue(currentBook)
-            rootView.findNavController().navigate(R.id.action_customFragment_to_bookInfoFragment)
+            rootView.findNavController().navigateUp()
         }
 
         // For each check box the furthest option to the right should automatically fill in all options up until that point

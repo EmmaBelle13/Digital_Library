@@ -38,9 +38,21 @@ class MainFragment : Fragment() {
 
         binding.addBooksButton.setOnClickListener{
             rootView.findNavController()
-                .navigate(R.id.action_mainFragment_to_customFragment)
+                .navigate(R.id.action_mainFragment_to_bookInfoFragment)
         }
         val books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
+        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"),
+        Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
+        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"),
+        Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
+        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
+         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"),
+        Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
         Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
          Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
          Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"))

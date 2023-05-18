@@ -16,6 +16,7 @@
     <string name="number_of_pages_title"># of Pages:</string>
     <string name="small_option">Short</string>
     <string name="large_option">Tall</string>
+    <string name="alert_summon_button">Info</string>
     <string-array name="genre_options_array">
         <item>Fantasy</item>
         <item>Horror</item>

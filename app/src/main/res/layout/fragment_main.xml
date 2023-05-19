@@ -50,10 +50,10 @@
         android:layout_marginBottom="8dp"
         android:background="@color/shadow_brown"
         android:orientation="horizontal"
+
+
         android:scrollbars="horizontal"
         app:flow_horizontalStyle="packed"
-
-
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="@+id/bookshelf_wood"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainFragment"
-    android:background="@color/light_green">
+   >
+<!-- android:background="@color/light_green"-->
 
     <Button
         android:id="@+id/add_books_button"
@@ -35,12 +36,13 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginBottom="100dp"
-        android:background="@color/bookshelf_brown"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+<!--          android:background="@color/bookshelf_brown"-->
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -48,10 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/shadow_brown"
         android:orientation="horizontal"
-
-
         android:scrollbars="horizontal"
         app:flow_horizontalStyle="packed"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -59,4 +58,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/bookshelf_wood" />
+    <!--        android:background="@color/shadow_brown"-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,11 +19,12 @@ class BookViewHolder(val binding: SingleBookLayoutBinding) :
 
         private lateinit var currentBook: Book
 
-        @SuppressLint("ResourceAsColor")
         fun bindBook(book: Book){
             currentBook = book
             binding.titleText.text = currentBook.title
             binding.titleText.width = currentBook.bookHeight
+            //All colors turn to blue for some reason
+//            binding.titleText.setTextColor(R.color.black)
            //I need to be able to adjust this displayed information in some way the text works but it is the only one
         }
 }

@@ -40,11 +40,18 @@ class BookViewModel: ViewModel() {
 
     fun setGenre( inputGenre: String){
         _genre.value = inputGenre
-
     }
 
     fun setScore( num: Int){
         _score.value = num
+    }
+
+    fun setSummary(summaryDraft: String){
+        _summary.value = summaryDraft
+    }
+
+    fun setBookHeight(){
+
     }
 
 //    fun setColor(color: String){

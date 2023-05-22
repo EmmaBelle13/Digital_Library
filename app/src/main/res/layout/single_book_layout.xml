@@ -11,12 +11,14 @@
         android:layout_height="40dp"
         android:layout_gravity="center"
         android:layout_marginBottom="90dp"
-        android:background="@color/red"
         android:rotation="-90"
         android:text="Title"
-        android:textColor="@color/gold"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+<!--            android:background="@color/red"-->
+<!--            android:textColor="@color/gold"-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

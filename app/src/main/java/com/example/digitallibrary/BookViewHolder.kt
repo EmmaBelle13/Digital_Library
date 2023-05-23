@@ -1,10 +1,13 @@
 package com.example.digitallibrary
 
 import android.annotation.SuppressLint
+import android.content.Context
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.digitallibrary.R.*
 import com.example.digitallibrary.databinding.SingleBookLayoutBinding
+import java.security.AccessController.getContext
 
 class BookViewHolder(val binding: SingleBookLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
@@ -22,9 +25,9 @@ class BookViewHolder(val binding: SingleBookLayoutBinding) :
         fun bindBook(book: Book){
             currentBook = book
             binding.titleText.text = currentBook.title
-            binding.titleText.width = currentBook.bookHeight
-            //All colors turn to blue for some reason
-//            binding.titleText.setTextColor(R.color.black)
+            binding.titleText.setW = currentBook.bookHeight
+            var color = currentBook.color
+         binding.titleText.setBackgroundColor(ContextCompat.getColor(binding.titleText.context, color))
            //I need to be able to adjust this displayed information in some way the text works but it is the only one
         }
 }

@@ -5,16 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.digitallibrary.databinding.FragmentMainBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.lang.reflect.Array.get
 
 
 class MainFragment : Fragment() {
@@ -41,24 +38,14 @@ class MainFragment : Fragment() {
                 .navigate(R.id.action_mainFragment_to_bookInfoFragment)
         }
         binding.infoButton.setOnClickListener(){
-            binding.infoButton.setBackgroundColor(R.id.color_button_red)
+            binding.infoButton.setBackgroundColor(ContextCompat.getColor(binding.infoButton.context, R.color.gold))
         }
-        val books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"),
-        Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"),
-        Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"),
-        Book("The Great Gatsby","Fitzgerald", "@color/light_green",230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("Shadow and Bone","Fitz", "@color/green",200, "The story of another Gatsby"),
-         Book("How to Kill a Mockingbird","Fitz", "@color/green",200, "The story of another Gatsby"))
+        val books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,230, "The story of Gatsby"),
+        Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby"),
+         Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby"),
+         Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby"),
+        Book("The Great Gatsby","Fitzgerald", R.color.red,230, "The story of Gatsby"),
+        Book("The Ok Gatsby","Fitz", R.color.gold,200, "The story of another Gatsby"))
 
         val myAdapter = BookAdapter(books)
         binding.recyclerView.adapter = myAdapter

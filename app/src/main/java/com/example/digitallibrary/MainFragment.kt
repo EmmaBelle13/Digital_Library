@@ -31,7 +31,6 @@ class MainFragment : Fragment() {
         _binding =  FragmentMainBinding.inflate(inflater, container, false)
         val rootView = binding.root
         dbRef = Firebase.database.reference
-       // recycler.layoutManager = GridLayoutManager(requireContext(), 3)
 
         binding.addBooksButton.setOnClickListener{
             rootView.findNavController()

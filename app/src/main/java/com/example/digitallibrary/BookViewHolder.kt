@@ -25,7 +25,7 @@ class BookViewHolder(val binding: SingleBookLayoutBinding) :
         fun bindBook(book: Book){
             currentBook = book
             binding.titleText.text = currentBook.title
-            binding.titleText.setW = currentBook.bookHeight
+          //  binding.titleText.setW = currentBook.bookHeight
             var color = currentBook.color
          binding.titleText.setBackgroundColor(ContextCompat.getColor(binding.titleText.context, color))
            //I need to be able to adjust this displayed information in some way the text works but it is the only one

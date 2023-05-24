@@ -90,8 +90,30 @@ class CustomFragment : Fragment() {
 
         //When a button color is chosen it either needs to glow or set the background to be that
         binding.colorButtonBlue.setOnClickListener(){
-//            viewModel.setColor("R.color.blue")
+            viewModel.setBookColor(R.color.blue)
         }
+        binding.colorButtonBrown.setOnClickListener(){
+            viewModel.setBookColor(R.color.brown)
+        }
+        binding.colorButtonDarkGreen.setOnClickListener(){
+            viewModel.setBookColor(R.color.dark_green)
+        }
+        binding.colorButtonGold.setOnClickListener(){
+            viewModel.setBookColor(R.color.gold)
+        }
+
+        binding.colorButtonPink.setOnClickListener(){
+            viewModel.setBookColor(R.color.pink)
+        }
+
+        binding.colorButtonPurple.setOnClickListener(){
+            viewModel.setBookColor(R.color.purple_gray)
+        }
+
+        binding.colorButtonRed.setOnClickListener(){
+            viewModel.setBookColor(R.color.red)
+        }
+
 
 
 

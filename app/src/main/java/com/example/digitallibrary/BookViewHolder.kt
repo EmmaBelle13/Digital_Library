@@ -11,16 +11,20 @@ import java.security.AccessController.getContext
 
 class BookViewHolder(val binding: SingleBookLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
+
+      private lateinit var currentBook: Book
     val rootView = binding.root
     init {
         binding.root.setOnClickListener{view->
-               rootView.findNavController().navigate(id.action_mainFragment_to_bookInfoFragment)
-
+            val num = currentBook.bookNumber
+            val action = MainFragmentDirections.actionMainFragmentToBookInfoFragment(num)
+               rootView.findNavController().navigate(action)
+//this book does not know what number it is you aren't supposed to set up a view model in the view holder i think I am going to let each book know what its position is because it has access to the book information just not the list
 
         }
     }
 
-        private lateinit var currentBook: Book
+
 
         fun bindBook(book: Book){
             currentBook = book

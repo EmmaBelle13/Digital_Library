@@ -5,6 +5,17 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class BookViewModel: ViewModel() {
+
+    private var _books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,230, "The story of Gatsby", "Fantasy", 0),
+        Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby","Fantasy", 1),
+         Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby","Fantasy", 2),
+         Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby","Fantasy", 3),
+        Book("The Great Gatsby","Fitzgerald", R.color.red,230, "The story of Gatsby","Fantasy", 4),
+        Book("The Ok Gatsby","Fitz", R.color.gold,200, "The story of another Gatsby", "Fantasy", 5))
+    val books: List<Book>
+    //this call is necessary so that the recycler view can still be attached to the adapter in main fragment//
+        get() = _books
+
     private var _title = MutableLiveData<String>("Title")
     val title: LiveData<String>
         get() = _title
@@ -12,8 +23,8 @@ class BookViewModel: ViewModel() {
     private var _author = MutableLiveData<String>("Unknown")
     val author: LiveData<String>
         get() = _author
-
-    private var _color = MutableLiveData<Int>(R.color.red)
+//the probelm lies here//
+    private var _color = MutableLiveData<Int>()
     val color: LiveData<Int>
         get() = _color
 
@@ -38,8 +49,12 @@ class BookViewModel: ViewModel() {
     val currentBook: LiveData<Int>
         get() = _currentBook
 
+    private var _num = MutableLiveData(0)
+    val num: LiveData<Int>
+    get() = _num
+
     fun setGenre( inputGenre: String){
-        _genre.value = inputGenre
+       books[currentBook.value ?: 0].genre = inputGenre
     }
 
     fun setScore( num: Int){
@@ -54,16 +69,10 @@ class BookViewModel: ViewModel() {
 
     }
     fun setBookColor(bookColor: Int){
-        _color.value = bookColor
+       books[currentBook.value ?: 0].color = bookColor
     }
 
-
-//    fun setColor(color: String){
-//        _score.value = color
-//    }
-
-
-
-
-         //   var title: String, var author: String, var color: String, var bookHeight: Int, var summary: String
+    fun setCurrentBook(bookNum: Int){
+        _currentBook.value = bookNum
+    }
 }

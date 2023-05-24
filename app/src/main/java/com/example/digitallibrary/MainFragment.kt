@@ -39,12 +39,7 @@ class MainFragment : Fragment() {
         binding.infoButton.setOnClickListener(){
             binding.infoButton.setBackgroundColor(ContextCompat.getColor(binding.infoButton.context, R.color.gold))
         }
-        val books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby"),
-         Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby"),
-         Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby"),
-        Book("The Great Gatsby","Fitzgerald", R.color.red,230, "The story of Gatsby"),
-        Book("The Ok Gatsby","Fitz", R.color.gold,200, "The story of another Gatsby"))
+        var books = viewModel.books
 
         val myAdapter = BookAdapter(books)
         binding.recyclerView.adapter = myAdapter

@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 
 class BookViewModel: ViewModel() {
 
-    private var _books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,230, "The story of Gatsby", "Fantasy", 0),
-        Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby","Fantasy", 1),
-         Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby","Fantasy", 2),
-         Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby","Fantasy", 3),
-        Book("The Great Gatsby","Fitzgerald", R.color.red,230, "The story of Gatsby","Fantasy", 4),
-        Book("The Ok Gatsby","Fitz", R.color.gold,200, "The story of another Gatsby", "Fantasy", 5))
+    private var _books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,230, "The story of Gatsby", "Fantasy", 0, 0),
+        Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby","Fantasy", 1, 0),
+         Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby","Fantasy", 2, 0),
+         Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby","Fantasy", 3, 0),
+        Book("The Great Gatsby","Fitzgerald", R.color.red,230, "The story of Gatsby","Fantasy", 4, 0),
+        Book("The Ok Gatsby","Fitz", R.color.gold,200, "The story of another Gatsby", "Fantasy", 5, 0))
     val books: List<Book>
     //this call is necessary so that the recycler view can still be attached to the adapter in main fragment//
         get() = _books
@@ -24,7 +24,7 @@ class BookViewModel: ViewModel() {
     val author: LiveData<String>
         get() = _author
 //the probelm lies here//
-    private var _color = MutableLiveData<Int>()
+    private var _color = MutableLiveData<Int>(R.color.red)
     val color: LiveData<Int>
         get() = _color
 
@@ -54,25 +54,46 @@ class BookViewModel: ViewModel() {
     get() = _num
 
     fun setGenre( inputGenre: String){
+        _genre.value = inputGenre
        books[currentBook.value ?: 0].genre = inputGenre
     }
 
     fun setScore( num: Int){
         _score.value = num
+         books[currentBook.value ?: 0].score = num
     }
 
     fun setSummary(summaryDraft: String){
         _summary.value = summaryDraft
+         books[currentBook.value ?: 0].summary = summaryDraft
     }
 
-    fun setBookHeight(){
+    fun setBookHeight(customHeight: Int){
+        _bookHeight.value = customHeight
+        books[currentBook.value ?: 0].bookHeight = customHeight
 
     }
     fun setBookColor(bookColor: Int){
        books[currentBook.value ?: 0].color = bookColor
+           _color.value = bookColor
+    }
+    fun setTitle(title: String){
+        _title.value = title
+         books[currentBook.value ?: 0].title = title
+    }
+    fun setAuthor(author: String){
+        _author.value = author
+         books[currentBook.value ?: 0].author = author
     }
 
     fun setCurrentBook(bookNum: Int){
         _currentBook.value = bookNum
+        setTitle(books[bookNum].title)
+        setBookColor(books[bookNum].color)
+        setSummary(books[bookNum].summary)
+        setGenre(books[bookNum].genre)
+        setAuthor(books[bookNum].author)
+
     }
+
 }

@@ -29,6 +29,11 @@ class BookInfoFragment : Fragment() {
         viewModel.setCurrentBook(args.bookNum)
 
         binding.bookBackground.setBackgroundColor(ContextCompat.getColor(binding.bookBackground.context, viewModel.color.value ?: 0))
+        binding.titleTextInfo.text = viewModel.title.value
+        binding.bookSummary.text = viewModel.summary.value
+        binding.authorsName.text = viewModel.author.value
+        binding.genre.text = viewModel.genre.value
+        binding.score.text = viewModel.score.value.toString()
 
         binding.editButton.setOnClickListener(){
             rootView.findNavController().navigate(R.id.action_bookInfoFragment_to_customFragment)

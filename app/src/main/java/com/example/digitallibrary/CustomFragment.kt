@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.SeekBar
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.digitallibrary.databinding.FragmentCustomBinding
@@ -113,6 +114,31 @@ class CustomFragment : Fragment() {
         binding.colorButtonRed.setOnClickListener(){
             viewModel.setBookColor(R.color.red)
         }
+
+        binding.editTitle.setOnClickListener(){
+            viewModel.setTitle(binding.editTitle.text.toString())
+        }
+        binding.editAuthor.setOnClickListener(){
+            viewModel.setAuthor(binding.scoreTwo.text.toString())
+        }
+
+         fun setUpSeekBar() {
+
+        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(
+                seekBar: SeekBar,
+                newProgressValue: Int,
+                fromUser: Boolean
+            ) {
+                viewModel.setBookHeight(newProgressValue)
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+
+        })
+    }
 
 
 

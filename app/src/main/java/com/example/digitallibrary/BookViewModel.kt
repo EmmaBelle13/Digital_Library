@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class BookViewModel: ViewModel() {
 
-    private var _books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,230, "The story of Gatsby", "Fantasy", 0, 0),
+    private var _books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,500, "The story of Gatsby", "Fantasy", 0, 0),
         Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby","Fantasy", 1, 0),
          Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby","Fantasy", 2, 0),
          Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby","Fantasy", 3, 0),

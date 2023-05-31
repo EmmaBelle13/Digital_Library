@@ -239,7 +239,9 @@
             android:id="@+id/seekBar"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="5" />
+            android:layout_weight="5"
+            android:min="180"
+            android:max="230"/>
 
         <TextView
             android:id="@+id/large_option_text"

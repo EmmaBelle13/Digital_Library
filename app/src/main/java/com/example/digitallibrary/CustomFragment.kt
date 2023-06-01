@@ -31,6 +31,7 @@ class CustomFragment : Fragment() {
         _binding = FragmentCustomBinding.inflate(inflater, container, false)
         val rootView = binding.root
         setUpSpinner()
+      setUpSeekBar()
 
         dbRef = Firebase.database.reference
 
@@ -122,23 +123,7 @@ class CustomFragment : Fragment() {
             viewModel.setAuthor(binding.scoreTwo.text.toString())
         }
 
-         fun setUpSeekBar() {
 
-        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(
-                seekBar: SeekBar,
-                newProgressValue: Int,
-                fromUser: Boolean
-            ) {
-                viewModel.setBookHeight(newProgressValue)
-
-            }
-
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-
-        })
-    }
 
 
 
@@ -180,5 +165,22 @@ class CustomFragment : Fragment() {
             override fun onNothingSelected(adapterView: AdapterView<*>?) {}
         }
 
+    }
+    fun setUpSeekBar() {
+
+        binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(
+                seekBar: SeekBar,
+                newProgressValue: Int,
+                fromUser: Boolean
+            ) {
+                viewModel.setBookHeight(newProgressValue)
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+
+        })
     }
 }

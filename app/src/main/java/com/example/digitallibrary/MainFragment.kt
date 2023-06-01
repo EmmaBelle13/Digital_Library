@@ -33,8 +33,10 @@ class MainFragment : Fragment() {
         dbRef = Firebase.database.reference
 
         binding.addBooksButton.setOnClickListener{
-            rootView.findNavController()
-                .navigate(R.id.action_mainFragment_to_bookInfoFragment)
+            viewModel.createNewBook()
+            val num = viewModel.books.size - 1
+            val action = MainFragmentDirections.actionMainFragmentToBookInfoFragment(num)
+               rootView.findNavController().navigate(action)
         }
         binding.infoButton.setOnClickListener(){
             binding.infoButton.setBackgroundColor(ContextCompat.getColor(binding.infoButton.context, R.color.gold))

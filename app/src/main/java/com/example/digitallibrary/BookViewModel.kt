@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 
 class BookViewModel: ViewModel() {
 
-    private var _books = listOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,500, "The story of Gatsby", "Fantasy", 0, 0),
-        Book("The Ok Gatsby","Fitz", R.color.pink,200, "The story of another Gatsby","Fantasy", 1, 0),
-         Book("Shadow and Bone","Fitz", R.color.brown,200, "The story of another Gatsby","Fantasy", 2, 0),
-         Book("How to Kill a Mockingbird","Fitz", R.color.blue,200, "The story of another Gatsby","Fantasy", 3, 0),
-        Book("The Great Gatsby","Fitzgerald", R.color.red,230, "The story of Gatsby","Fantasy", 4, 0),
-        Book("The Ok Gatsby","Fitz", R.color.gold,200, "The story of another Gatsby", "Fantasy", 5, 0))
+    private var _books = mutableListOf<Book>(Book("The Great Gatsby","Fitzgerald", R.color.gold,500, "The story of Gatsby", "Fantasy", 0, 0),
+        Book("The Ok Gatsby","Fitz", R.color.pink,510, "The story of another Gatsby","Fantasy", 1, 0),
+         Book("Shadow and Bone","Fitz", R.color.brown,520, "The story of another Gatsby","Fantasy", 2, 0),
+         Book("How to Kill a Mockingbird","Fitz", R.color.blue,530, "The story of another Gatsby","Fantasy", 3, 0),
+        Book("The Great Gatsby","Fitzgerald", R.color.red,540, "The story of Gatsby","Fantasy", 4, 0),
+        Book("The Ok Gatsby","Fitz", R.color.gold,550, "The story of another Gatsby", "Fantasy", 5, 0))
     val books: List<Book>
     //this call is necessary so that the recycler view can still be attached to the adapter in main fragment//
         get() = _books
@@ -94,6 +94,11 @@ class BookViewModel: ViewModel() {
         setGenre(books[bookNum].genre)
         setAuthor(books[bookNum].author)
 
+    }
+    fun createNewBook(){
+        val location = books.size - 1
+        _books.add(Book("Title","Unknown",R.color.red, 500, "A Summary", "Fantasy", location, 0))
+        setCurrentBook(location)
     }
 
 }

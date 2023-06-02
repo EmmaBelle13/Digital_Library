@@ -26,6 +26,9 @@
            <item>Romance</item>
     </string-array>
     <string name="by_text">By:</string>
-
+    <string name="dialog">Your Reading Stats</string>
+    <string name="dialog_subtitle">You have read #of books. Your favorite author was a person. Your favorite books have been...</string>
+<string name="dialog_no">No</string>
+    <string name="dialog_yes">Yeah</string>
 
 </resources>

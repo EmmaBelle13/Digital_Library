@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.digitallibrary.databinding.FragmentMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -41,6 +42,25 @@ class MainFragment : Fragment() {
         binding.infoButton.setOnClickListener(){
             binding.infoButton.setBackgroundColor(ContextCompat.getColor(binding.infoButton.context, R.color.gold))
         }
+
+        binding.infoButton.setOnClickListener{
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.dialog)
+                    .setMessage(R.string.dialog_subtitle)
+                    .setPositiveButton(R.string.dialog_no){ dialog, which ->
+
+
+                    }
+                    .setNegativeButton(R.string.dialog_yes){ dialog, which ->
+
+
+                    }
+                    .show()
+
+            }
+
+
         var books = viewModel.books
 
         val myAdapter = BookAdapter(books)

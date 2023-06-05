@@ -100,14 +100,16 @@ class BookViewModel: ViewModel() {
         _books.add(Book("Title","Unknown",R.color.red, 500, "A Summary", "Fantasy", location, 0))
         setCurrentBook(location)
     }
-    fun findFavAuthor(){
-        var favAuthor = books[0].author
+    fun findFav(): Int {
         var currentWinner = 0
+
         for(i in books){
             if(i.score > books[currentWinner].score){
-
+            currentWinner = i.bookNumber
             }
         }
+
+        return currentWinner
     }
 
 }

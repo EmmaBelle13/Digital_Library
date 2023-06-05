@@ -28,7 +28,10 @@
     <string name="by_text">By:</string>
     <string name="dialog">Your Reading Stats</string>
     <string name="dialog_subtitle">You have read #of books. Your favorite author was a person. Your favorite books have been...</string>
-<string name="dialog_no">No</string>
-    <string name="dialog_yes">Yeah</string>
+<string name="dialog_no">Not my favorite</string>
+    <string name="dialog_yes">Yeah I loved that one</string>
+    <string name="sorry_toast">Sorry to hear that. Feel free to adjust the books score.</string>
+    <string name="positive_toast">Good to hear keep up the good work!</string>
+    <string name="empty_snackbar">Sorry you do not have any books yet. </string>
 
 </resources>

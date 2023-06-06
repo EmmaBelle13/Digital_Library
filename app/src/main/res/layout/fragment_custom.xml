@@ -77,7 +77,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/color_title"
-        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +124,7 @@
         android:id="@+id/edit_author"
         android:layout_width="235dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:hint=""
         app:layout_constraintBottom_toBottomOf="@+id/title_text_customizer"
         app:layout_constraintStart_toEndOf="@+id/title_text_customizer"
@@ -154,8 +153,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/color_picker_text"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/color_picker_text">
 
         <Button
@@ -180,14 +181,6 @@
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:backgroundTint="@color/brown"
-            android:text="" />
-
-        <Button
-            android:id="@+id/color_button_gold"
-            android:layout_width="30dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="8dp"
-            android:backgroundTint="@color/gold"
             android:text="" />
 
         <Button
@@ -240,8 +233,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="5"
-            android:min="180"
-            android:max="230"/>
+            android:min="500"
+            android:max="600"/>
 
         <TextView
             android:id="@+id/large_option_text"

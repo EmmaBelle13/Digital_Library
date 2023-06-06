@@ -1,6 +1,8 @@
 package com.example.digitallibrary
 
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SeekBar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.digitallibrary.databinding.FragmentCustomBinding
@@ -22,6 +25,7 @@ class CustomFragment : Fragment() {
     private val viewModel: BookViewModel by activityViewModels()
     lateinit var genre: String
     lateinit var dbRef: DatabaseReference
+    lateinit var myMediaPlayer: MediaPlayer
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,11 +40,28 @@ class CustomFragment : Fragment() {
         dbRef = Firebase.database.reference
 
         binding.setBookInfo.setOnClickListener(){
-       //     var currentBook: Book = viewModel.currentBook
+            if(!binding.editAuthor.getText().isEmpty()){
+                viewModel.setTitle(binding.editAuthor.getText().toString())
+            }
+            if(!binding.editTitle.getText().isEmpty()){
+                viewModel.setAuthor(binding.editTitle.getText().toString())
+            }
+            if(!binding.editSummary.getText().isEmpty()){
+                viewModel.setSummary(binding.editSummary.getText().toString())
+            }
+            //saveBookData()
+
+
             //Should be what sends it to the firebase db but I have not actually set up information to store yet
-       //     dbRef.child("book").push().setValue(currentBook)
+        myMediaPlayer = MediaPlayer.create(context, R.raw.pageflip)
+            myMediaPlayer.start()
+
             rootView.findNavController().navigateUp()
         }
+        binding.editAuthor.hint = viewModel.title.value
+        binding.editTitle.hint = viewModel.author.value
+        binding.editSummary.hint = viewModel.summary.value
+
 
         // For each check box the furthest option to the right should automatically fill in all options up until that point
         //does not uncheck buttons when you click to the left yet
@@ -89,6 +110,10 @@ class CustomFragment : Fragment() {
                 binding.scoreFour.isChecked = true
             }
         }
+        viewModel.color.observe(viewLifecycleOwner){
+            currentColor->
+            binding.colorPickerText.setTextColor(ContextCompat.getColor(binding.colorPickerText.context,currentColor))
+        }
 
         //When a button color is chosen it either needs to glow or set the background to be that
         binding.colorButtonBlue.setOnClickListener(){
@@ -99,9 +124,6 @@ class CustomFragment : Fragment() {
         }
         binding.colorButtonDarkGreen.setOnClickListener(){
             viewModel.setBookColor(R.color.dark_green)
-        }
-        binding.colorButtonGold.setOnClickListener(){
-            viewModel.setBookColor(R.color.gold)
         }
 
         binding.colorButtonPink.setOnClickListener(){
@@ -116,12 +138,8 @@ class CustomFragment : Fragment() {
             viewModel.setBookColor(R.color.red)
         }
 
-        binding.editTitle.setOnClickListener(){
-            viewModel.setTitle(binding.editTitle.text.toString())
-        }
-        binding.editAuthor.setOnClickListener(){
-            viewModel.setAuthor(binding.scoreTwo.text.toString())
-        }
+
+
 
 
 
@@ -149,6 +167,7 @@ class CustomFragment : Fragment() {
         genreArrayAdapter.setDropDownViewResource(
             android.R.layout.simple_spinner_dropdown_item
         )
+        binding.spinner.setSelection(genreArrayAdapter.getPosition(viewModel.genre.value.toString()))
         spinner.adapter = genreArrayAdapter
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
@@ -183,4 +202,11 @@ class CustomFragment : Fragment() {
 
         })
     }
+//    fun saveBookData(){
+//        val bookId = dbRef.push().key!!
+//
+//        var currentBook: Book = viewModel.books[viewModel.currentBook.value!!]
+//        dbRef.child("title").push().setValue(viewModel.title)
+//
+//    }
 }

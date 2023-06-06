@@ -77,12 +77,13 @@
 
     <TextView
         android:id="@+id/title_text_info"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Temporary Title"
-        android:textSize="30sp"
+        android:gravity="center"
         android:textColor="@color/gold"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/book_background"
         app:layout_constraintStart_toStartOf="@+id/book_background"
         app:layout_constraintTop_toTopOf="@+id/book_background" />
@@ -93,6 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:gravity="center"
         android:textColor="@color/gold"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/book_background"
@@ -133,6 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="TextView"
+        android:gravity="center"
         android:textColor="@color/gold"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/book_background"

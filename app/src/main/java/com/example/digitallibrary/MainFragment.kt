@@ -21,12 +21,12 @@ import com.google.firebase.ktx.Firebase
 
 
 class MainFragment : Fragment() {
-    private var _binding:  FragmentMainBinding? = null
-    private val  binding get() =  _binding!!
-     private val viewModel: BookViewModel by activityViewModels()
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
+    private val viewModel: BookViewModel by activityViewModels()
 
-    lateinit var dbRef : DatabaseReference
-   // private var recycler: RecyclerView = binding.recyclerView
+    lateinit var dbRef: DatabaseReference
+    // private var recycler: RecyclerView = binding.recyclerView
 
 
     override fun onCreateView(
@@ -34,45 +34,53 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding =  FragmentMainBinding.inflate(inflater, container, false)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
         val rootView = binding.root
         dbRef = Firebase.database.reference
 
-        binding.addBooksButton.setOnClickListener{
+        binding.addBooksButton.setOnClickListener {
             viewModel.createNewBook()
             val num = viewModel.books.size - 1
             val action = MainFragmentDirections.actionMainFragmentToBookInfoFragment(num)
-               rootView.findNavController().navigate(action)
+            rootView.findNavController().navigate(action)
         }
 
 
-        binding.infoButton.setOnClickListener{
-            if (viewModel.books.isEmpty()){
+        binding.infoButton.setOnClickListener {
+            if (viewModel.books.size < 2) {
                 Snackbar.make(
                     binding.infoButton,
                     R.string.empty_snackbar,
-                    Snackbar.LENGTH_SHORT)
+                    Snackbar.LENGTH_SHORT
+                )
                     .show()
-            }
-
-            var setMessageAnswer = "You have read ${viewModel.books.size - 1} books. Great Job! One of your favorites was ${viewModel.books[viewModel.findFav()].title} by ${viewModel.books[viewModel.findFav()].author}"
+            } else {
+                var setMessageAnswer =
+                    "You have read ${viewModel.books.size - 1} books. Great Job! One of your favorites was ${viewModel.books[viewModel.findFav()].title} by ${viewModel.books[viewModel.findFav()].author}"
 
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle(string.dialog)
                     .setMessage(setMessageAnswer)
-                    .setPositiveButton(string.dialog_no){ dialog, which ->
-                        Toast.makeText(requireContext().applicationContext, R.string.positive_toast, Toast.LENGTH_SHORT).show()
-
+                    .setPositiveButton(string.dialog_yes) { dialog, which ->
+                        Toast.makeText(
+                            requireContext().applicationContext,
+                            R.string.positive_toast,
+                            Toast.LENGTH_SHORT
+                        ).show()
 
 
                     }
-                    .setNegativeButton(string.dialog_yes){ dialog, which ->
-                        Toast.makeText(requireContext().applicationContext,R.string.sorry_toast, Toast.LENGTH_SHORT)
+                    .setNegativeButton(string.dialog_no) { dialog, which ->
+                        Toast.makeText(
+                            requireContext().applicationContext,
+                            R.string.sorry_toast,
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                     }
                     .show()
-
             }
+        }
 
 
         var books = viewModel.books
